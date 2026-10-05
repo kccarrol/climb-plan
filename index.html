@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F4D3A">
+<meta name="description" content="8-week mountain bike climbing plan and training log">
+<title>Climb Plan</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="sub">8-week MTB climbing plan</p>
+  <h1>Climb stronger, climb longer</h1>
+  <p class="sub" id="summary">Loading your progress…</p>
+  <p class="status sync" id="saveStatus" role="status" aria-live="polite"></p>
+
+  <div class="ridge" aria-label="Saturday route climbing by week">
+    <svg id="ridgeSvg" viewBox="0 -20 640 192" role="img"></svg>
+    <div class="cap"><span>Saturday climbing, week by week</span><span id="ridgeCap"></span></div>
+  </div>
+
+  <div class="weeks noprint" id="weeks" role="group" aria-label="Choose week"></div>
+  <p class="phase" id="phase"></p>
+  <div class="days" id="days"></div>
+  <div class="printonly" id="printAll"></div>
+
+  <h2>Benchmarks</h2>
+  <div class="panel scroll">
+    <table id="bench"><thead><tr><th>Test</th><th>Before</th><th>After</th><th>Change</th></tr></thead><tbody></tbody></table>
+    <p class="status" style="margin-top:8px">Fills in from the climb times you log on the matching days.</p>
+  </div>
+
+  <h2>Resistance ladder</h2>
+  <div class="panel">
+    <p class="sub" style="margin-bottom:10px">Set your VeloCore resistance for each grade once, then keep it fixed so Trail at Home times stay comparable.</p>
+    <table class="ladder"><thead><tr><th>Route grade</th><th>Resistance</th></tr></thead><tbody id="ladder"></tbody></table>
+  </div>
+
+  <h2>Route library</h2>
+  <div class="panel scroll">
+    <table><thead><tr><th>Route</th><th>Miles</th><th>Climb ft</th><th>Main climb</th><th>Weeks</th></tr></thead><tbody id="routes"></tbody></table>
+  </div>
+
+  <h2 class="noprint">Settings</h2>
+  <div class="panel noprint">
+    <div class="row start">
+      <label for="start">Plan start date (a Monday)</label>
+      <input type="date" id="start">
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn" id="printBtn">Print full plan</button>
+      <button class="btn" id="exportBtn">Download backup</button>
+      <label class="btn" for="importFile">Restore backup</label>
+      <input type="file" id="importFile" accept=".json,application/json" hidden>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn" id="resetBtn">Clear all logged data</button>
+    </div>
+    <p class="status" id="backupStatus"></p>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
